@@ -18,6 +18,6 @@ task.
 <br/>
 
 
-![title](img/mdp_diagram.svg)
+![title](./img/mdp_diagram.svg)
 
 ###### Source: https://upload.wikimedia.org/wikipedia/commons/1/1b/Reinforcement_learning_diagram.svg
