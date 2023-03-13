@@ -63,8 +63,8 @@ class Maze(gym.Env):
         super().__init__()
         self.exploring_starts = exploring_starts
         self.shaped_rewards = shaped_rewards
-        self.state = (size - 1, size - 1)
-        self.goal = (size - 1, size - 1)
+        self.state = (4,1) #(size - 1, size - 1)
+        self.goal = (4,1) #(size - 1, size - 1)
         self.maze = self._create_maze(size=size)
         self.distances = self._compute_distances(self.goal, self.maze)
         self.action_space = spaces.Discrete(n=4)
@@ -100,7 +100,7 @@ class Maze(gym.Env):
             while self.state == self.goal:
                 self.state = tuple(self.observation_space.sample())
         else:
-            self.state = (0, 0)
+            self.state = (0,3)#(0, 0)
         return self.state
 
     def render(self, mode: str = 'human') -> Optional[np.ndarray]:
@@ -147,7 +147,7 @@ class Maze(gym.Env):
 
         # Add the geometry of the goal square to the viewer.
         left, right, top, bottom = scale * 4 + 10, scale * 5 - 10, scale - 10, 10
-        gfxdraw.filled_polygon(surf, [(left, bottom), (left, top), (right, top), (right, bottom)], (40, 199, 172))
+        #gfxdraw.filled_polygon(surf, [(left, bottom), (left, top), (right, top), (right, bottom)], (40, 199, 172))
 
         # Add the geometry of the agent to the viewer.
         agent_row = int(screen_size - scale * (self.state[0] + .5))
